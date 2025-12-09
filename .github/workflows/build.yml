@@ -1,4 +1,4 @@
-name: Test PCF Build
+name: Build PCF Component
 
 on:
   push:
@@ -28,4 +28,3 @@ jobs:
       with:
         name: pcf-build
         path: ./out
-        retention-days: 7
