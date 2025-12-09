@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest version="1.0.0">
   <control namespace="Finance" constructor="DashboardFinanceiro" version="1.0.0" display-name-key="DashboardFinanceiro" description-key="Dashboard financeiro customizado">
-    
+
     <resources>
       <code path="index.ts" order="1" />
       <css path="style.css" order="1" />
