@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest version="1.0.0">
+  <control namespace="Finance" constructor="DashboardFinanceiro" version="1.0.0" display-name-key="DashboardFinanceiro" description-key="Dashboard financeiro customizado" control-type="standard">
+    
+    <resources>
+      <code path="index.ts" order="1" />
+      <css path="style.css" order="1" />
+    </resources>
+
+    <property name="Saldo" display-name-key="Saldo" description-key="Saldo atual" of-type="Decimal" usage="bound" />
+    <property name="Receita" display-name-key="Receita" description-key="Receita atual" of-type="Decimal" usage="bound" />
+    <property name="Despesa" display-name-key="Despesa" description-key="Despesa atual" of-type="Decimal" usage="bound" />
+
+    <feature-usage>
+      <uses-feature name="Device.captureAudio" required="false" />
+      <uses-feature name="Device.captureImage" required="false" />
+      <uses-feature name="Device.captureVideo" required="false" />
+    </feature-usage>
+
+    <data-set name="dataset" display-name-key="dataset" description-key="Dataset para o componente" />
+  
+    <supporting-scripts>
+      <script path="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </supporting-scripts>
+
+  </control>
+</manifest>

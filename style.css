@@ -1,0 +1,44 @@
+.dashboard {
+    font-family: 'Segoe UI', sans-serif;
+    color: #1d1d1d;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.saldo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0f6fff;
+}
+
+.cards {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.card {
+    border-radius: 10px;
+    padding: 16px;
+    flex-grow: 1;
+    color: white;
+}
+
+.green { background: #2ea44f; }
+.red { background: #d73a49; }
+.blue { background: #0366d6; }
+
+.grafico {
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 10px;
+}
