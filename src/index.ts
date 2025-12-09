@@ -1,8 +1,10 @@
 import { IInputs, IOutputs } from "./generated/ManifestTypes";
+import Chart from "chart.js/auto";
 
-export class FinanceDashboard implements ComponentFramework.StandardControl<IInputs, IOutputs> {
+export class DashboardFinanceiro implements ComponentFramework.StandardControl<IInputs, IOutputs> {
 
     private container: HTMLDivElement;
+    private chart: Chart | null = null;
 
     public init(
         context: ComponentFramework.Context<IInputs>,
@@ -55,18 +57,29 @@ export class FinanceDashboard implements ComponentFramework.StandardControl<IInp
     }
 
     private renderChart(receita: number, despesa: number) {
-        const canvas = document.getElementById("fluxoCanvas") as HTMLCanvasElement;
-        const ctx = canvas.getContext("2d");
 
-        if (!ctx) return;
+        // Limpando gráfico anterior
+        if (this.chart) {
+            this.chart.destroy();
+        }
 
-        new (window as any).Chart(ctx, {
+        // Canvas dentro do container (PCF não permite usar document)
+        const canvas = this.container.querySelector("#fluxoCanvas") as HTMLCanvasElement;
+        if (!canvas) return;
+
+        this.chart = new Chart(canvas, {
             type: "bar",
             data: {
                 labels: ["Receita", "Despesa"],
                 datasets: [{
-                    data: [receita, despesa]
+                    label: "Fluxo Financeiro",
+                    data: [receita, despesa],
+                    backgroundColor: ["#2EA44F", "#D73A49"]
                 }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
             }
         });
     }
@@ -79,5 +92,7 @@ export class FinanceDashboard implements ComponentFramework.StandardControl<IInp
         return {};
     }
 
-    public destroy(): void {}
+    public destroy(): void {
+        if (this.chart) this.chart.destroy();
+    }
 }
