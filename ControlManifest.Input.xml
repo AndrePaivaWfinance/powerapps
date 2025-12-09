@@ -18,10 +18,6 @@
     </feature-usage>
 
     <data-set name="dataset" display-name-key="dataset" description-key="Dataset para o componente" />
-  
-    <supporting-scripts>
-      <script path="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    </supporting-scripts>
 
   </control>
 </manifest>
