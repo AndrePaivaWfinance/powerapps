@@ -1,7 +1,7 @@
 {
   "name": "dashboard-financeiro-pcf",
   "version": "1.0.0",
-  "description": "Componente financeiro customizado para Power Apps",
+  "description": "Teste de Componente financeiro customizado para Power Apps",
   "scripts": {
     "build": "pcf-scripts build",
     "start": "pcf-scripts start",
