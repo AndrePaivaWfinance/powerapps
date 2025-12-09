@@ -1,9 +1,7 @@
-name: Build PCF Component
+name: Test PCF Build
 
 on:
   push:
-    branches: ["main"]
-  pull_request:
     branches: ["main"]
 
 jobs:
@@ -12,21 +10,22 @@ jobs:
 
     steps:
     - name: Checkout repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Setup Node
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: 18
 
     - name: Install dependencies
       run: npm install
 
-    - name: Build PCF
+    - name: Build component
       run: npm run build
 
-    - name: Upload PCF ZIP artifact
-      uses: actions/upload-artifact@v3
+    - name: Upload ZIP artifact
+      uses: actions/upload-artifact@v4
       with:
         name: pcf-build
         path: ./out
+        retention-days: 7
